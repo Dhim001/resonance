@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext } from "react";
-import type { inferRouterInputs, inferRouterOutputs } from "@trpc/server";
+import type { inferRouterOutputs } from "@trpc/server";
 import { AppRouter } from "@/trpc/routers/_app";
 
 type TTSVoiceItem = inferRouterOutputs<AppRouter>["voices"]["getAll"]["custom"][number];
@@ -28,7 +28,7 @@ export function TTSVoicesProvider({
 
 export function useTTSVoices() {
     const context = useContext(TTSVoicesContext);
-    
+
     if (!context) {
         throw new Error("useTTSVoices must be used within a TTSVoicesProvider");
     }

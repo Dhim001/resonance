@@ -39,7 +39,7 @@ export const authProcedure = baseProcedure.use(async ({ next }) => {
 });
 
 // Organization-protected procedure - checks if user belongs to org
-export const orgProcedure = authProcedure.use(async ({ ctx, next }) => {
+export const orgProcedure = authProcedure.use(async ({ next }) => {
   const { userId, orgId } = await auth();
 
   if (!userId) {
